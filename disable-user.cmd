@@ -1,7 +1,7 @@
 @ECHO OFF
 
 powershell -executionpolicy ByPass ^
-    $ar_name = 'disable-account-win.cmd'; ^
+    $ar_name = 'disable-user.cmd'; ^
     $log_file = 'C:\Program Files (x86)\ossec-agent\active-response\active-responses.log'; ^
     $rollback = $false; ^
     function Write-Log { ^
@@ -22,7 +22,7 @@ powershell -executionpolicy ByPass ^
     if (!$rollback) { ^
         net user $username /active:no; ^
 
-        Write-Log 'Local user DELETED:',$username -join ' '} ^
+        Write-Log 'Local user Disable:',$username -join ' '} ^
     else { ^
         net user $username /active:yes; ^
 
